@@ -75,9 +75,9 @@ class Wablas extends Component
     }
 
     /**
-     * @return Device|V1|V2
+     * @return versions\V1|versions\V2
      */
-    public function create($version)
+    public function build($version)
     {
         $className = $this->versions[$version] ?? null;
 

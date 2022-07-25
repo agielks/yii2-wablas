@@ -10,7 +10,7 @@ use agielks\yii2\wablas\Wablas;
 use yii\base\BaseObject;
 
 /**
- * Wrapper for Wablas Version 1
+ * Wrapper for Wablas Custom version
  */
 class CustomVersion extends BaseObject
 {

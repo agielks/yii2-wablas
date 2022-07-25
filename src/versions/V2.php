@@ -147,8 +147,6 @@ class V2 extends BaseObject
      */
     private function data(array $data)
     {
-        return [
-            'data' => $data,
-        ];
+        return ['data' => $data];
     }
 }

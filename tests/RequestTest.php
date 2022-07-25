@@ -53,7 +53,7 @@ class RequestTest extends \PHPUnit\Framework\TestCase
 
         /* @var $wablas \agielks\yii2\wablas\versions\V1 */
 
-        $wablas = $this->wablas->create('v1');
+        $wablas = $this->wablas->build('v1');
         $actual = $wablas->sendMessage($data)->request->toString();
 
         $this->assertEquals($expected, $actual);
@@ -78,7 +78,7 @@ class RequestTest extends \PHPUnit\Framework\TestCase
 
         /* @var $wablas \agielks\yii2\wablas\versions\V2 */
 
-        $wablas = $this->wablas->create('v2');
+        $wablas = $this->wablas->build('v2');
         $actual = $wablas->sendMessage($data)->request->toString();
 
         $this->assertEquals($expected, $actual);
@@ -101,7 +101,7 @@ class RequestTest extends \PHPUnit\Framework\TestCase
 
         /* @var $wablas CustomVersion */
 
-        $wablas = $this->wablas->create('custom');
+        $wablas = $this->wablas->build('custom');
         $actual = $wablas->sendMessage($data)->request->toString();
 
         $this->assertEquals($expected, $actual);
