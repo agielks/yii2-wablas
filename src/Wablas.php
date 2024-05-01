@@ -81,15 +81,13 @@ class Wablas extends Component
      */
     public function build($version)
     {
-        $className = $this->versions[$version] ?? null;
-
-        if ($className) {
-            $class = new $className();
-            if (property_exists($class, 'wablas')) {
+        if (isset($this->versions[$version])) {
+            $className = $this->versions[$version];
+            if (property_exists($className, 'wablas')) {
                 return new $className(['wablas' => $this]);
             }
 
-            throw new InvalidConfigException('The "passphrase" property must be set in the class "' . $className . '".');
+            throw new InvalidConfigException('The "wablas" property must be set in the class "' . $className . '".');
         }
 
         throw new InvalidConfigException('The version "' . $version . '" is not in version list.');
