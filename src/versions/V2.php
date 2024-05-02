@@ -719,18 +719,6 @@ class V2 extends BaseObject
      * passing a delete request with the endpoint 'v2/media/delete/{id}'.
      * 
      * @param string $id Unix ID from message. look response documentation api send message.
-     * ```php
-     * $data = [
-     *     [
-     *         'name' => 'danu',
-     *         'phone' => '6281218xxxxxx',
-     *         'email' => 'danu@gmail.com',
-     *         'password' => 'xxxxxxxx',
-     *     ],
-     *     ...
-     * ];
-     * ```
-     * 
      * @return Wablas
      */
     public function deleteMedia(string $id): Wablas
@@ -740,6 +728,8 @@ class V2 extends BaseObject
     }
 
     /**
+     * Generate Data for Payload Format
+     * 
      * @param array $data
      * @return array
      */
