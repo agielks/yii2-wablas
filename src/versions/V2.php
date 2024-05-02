@@ -466,6 +466,8 @@ class V2 extends BaseObject
      * Multiple Send Button,
      * It sets a request on the `$wablas` object, 
      * passing a post request with the endpoint 'v2/send-button'.
+     * 
+     * @param array $data
      * ```php
      * $data = [
      *     [
@@ -492,8 +494,6 @@ class V2 extends BaseObject
      * ];
      * ```
      * 
-     * 
-     * @param array $data
      * @return Wablas
      */
     public function sendButton(array $data): Wablas
