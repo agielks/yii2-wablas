@@ -8,6 +8,7 @@ namespace agielks\yii2\wablas;
 
 use Yii;
 use yii\base\Component;
+use yii\base\InvalidConfigException;
 use yii\httpclient\Client;
 use yii\httpclient\Request;
 use yii\httpclient\Response;
@@ -76,16 +77,20 @@ class Wablas extends Component
 
     /**
      * @return versions\V1|versions\V2
+     * @throws InvalidConfigException
      */
     public function build($version)
     {
-        $className = $this->versions[$version] ?? null;
+        if (isset($this->versions[$version])) {
+            $className = $this->versions[$version];
+            if (property_exists($className, 'wablas')) {
+                return new $className(['wablas' => $this]);
+            }
 
-        if ($className) {
-            return new $className(['wablas' => $this]);
+            throw new InvalidConfigException('The "wablas" property must be set in the class "' . $className . '".');
         }
 
-        throw new InvalidConfigException('Version not in version list');
+        throw new InvalidConfigException('The version "' . $version . '" is not in version list.');
     }
 
     /**
