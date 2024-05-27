@@ -76,7 +76,8 @@ class Wablas extends Component
     }
 
     /**
-     * @return versions\V1|versions\V2
+     * @param string $version The version key, if `null` will use default version
+     * @return versions\V1|versions\V2|mixed
      * @throws InvalidConfigException
      */
     public function build($version)

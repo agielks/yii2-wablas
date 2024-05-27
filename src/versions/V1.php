@@ -15,6 +15,8 @@ use yii\base\BaseObject;
 class V1 extends BaseObject
 {
     /**
+     * Instance of Wablas class
+     * 
      * @var Wablas
      */
     public $wablas;
@@ -53,7 +55,7 @@ class V1 extends BaseObject
     public function deviceChangeNumber(string $phone): Wablas
     {
         $this->wablas->setRequest($this->wablas->client->post(['device/change-number'])->setData(['phone' => $phone]));
-        return $this;
+        return $this->wablas;
     }
 
     /**
@@ -63,7 +65,7 @@ class V1 extends BaseObject
     public function deviceChangeWebhookUrl(string $url): Wablas
     {
         $this->wablas->setRequest($this->wablas->client->post(['device/change-webhook-url'])->setData(['webhook_url' => $url]));
-        return $this;
+        return $this->wablas;
     }
 
     /**
@@ -73,7 +75,7 @@ class V1 extends BaseObject
     public function deviceChangeTrackingUrl(string $url): Wablas
     {
         $this->wablas->setRequest($this->wablas->client->post(['device/change-tracking-url'])->setData(['tracking_url' => $url]));
-        return $this;
+        return $this->wablas;
     }
 
     /**
@@ -83,7 +85,7 @@ class V1 extends BaseObject
     public function deviceChangeClosing($closing): Wablas
     {
         $this->wablas->setRequest($this->wablas->client->post(['device/change-closing'])->setData(['closing' => $closing]));
-        return $this;
+        return $this->wablas;
     }
 
     /**
@@ -92,7 +94,7 @@ class V1 extends BaseObject
     public function deviceGenerateToken(): Wablas
     {
         $this->wablas->setRequest($this->wablas->client->get(['device/generate-token']));
-        return $this;
+        return $this->wablas;
     }
 
     /**
@@ -101,7 +103,16 @@ class V1 extends BaseObject
     public function deviceDisconnect(): Wablas
     {
         $this->wablas->setRequest($this->wablas->client->get(['device/disconnect']));
-        return $this;
+        return $this->wablas;
+    }
+
+    /**
+     * @return Wablas
+     */
+    public function deviceRestart(): Wablas
+    {
+        $this->wablas->setRequest($this->wablas->client->get(['device/restart']));
+        return $this->wablas;
     }
 
     /**
@@ -111,7 +122,7 @@ class V1 extends BaseObject
     public function deviceSpeed(int $delay): Wablas
     {
         $this->wablas->setRequest($this->wablas->client->get(['device/speed'])->setData(['delay' => $delay]));
-        return $this;
+        return $this->wablas;
     }
 
     /**

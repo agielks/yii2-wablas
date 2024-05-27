@@ -25,8 +25,7 @@ class V2 extends BaseObject
      * Multiple Send Text,
      * It sets a request on the `$wablas` object, 
      * passing a post request with the endpoint 'v2/send-message'.
-     * 
-     * @param array $data
+     *
      * ```php
      * $data = [
      *     [
@@ -41,6 +40,7 @@ class V2 extends BaseObject
      * ];
      * ```
      * 
+     * @param array $data
      * @return Wablas
      */
     public function sendMessage(array $data): Wablas
@@ -53,8 +53,7 @@ class V2 extends BaseObject
      * Multiple Send Image,
      * It sets a request on the `$wablas` object, 
      * passing a post request with the endpoint 'v2/send-image'.
-     * 
-     * @param array $data
+     *
      * ```php
      * $data = [
      *     [
@@ -70,7 +69,8 @@ class V2 extends BaseObject
      *     ...
      * ];
      * ```
-     * 
+     *
+     * @param array $data
      * @return Wablas
      */
     public function sendImage(array $data): Wablas
@@ -83,8 +83,7 @@ class V2 extends BaseObject
      * Multiple Send Audio,
      * It sets a request on the `$wablas` object, 
      * passing a post request with the endpoint 'v2/send-audio'.
-     * 
-     * @param array $data
+     *
      * ```php
      * $data = [
      *     [
@@ -98,7 +97,8 @@ class V2 extends BaseObject
      *     ...
      * ];
      * ```
-     * 
+     *
+     * @param array $data
      * @return Wablas
      */
     public function sendAudio(array $data): Wablas
@@ -111,8 +111,7 @@ class V2 extends BaseObject
      * Multiple Send Document,
      * It sets a request on the `$wablas` object, 
      * passing a post request with the endpoint 'v2/send-document'.
-     * 
-     * @param array $data
+     *
      * ```php
      * $data = [
      *     [
@@ -126,7 +125,8 @@ class V2 extends BaseObject
      *     ...
      * ];
      * ```
-     * 
+     *
+     * @param array $data
      * @return Wablas
      */
     public function sendDocument(array $data): Wablas
@@ -139,8 +139,7 @@ class V2 extends BaseObject
      * Multiple Send Video,
      * It sets a request on the `$wablas` object, 
      * passing a post request with the endpoint 'v2/send-video'.
-     * 
-     * @param array $data
+     *
      * ```php
      * $data = [
      *     [
@@ -156,7 +155,8 @@ class V2 extends BaseObject
      *     ...
      * ];
      * ```
-     * 
+     *
+     * @param array $data
      * @return Wablas
      */
     public function sendVideo(array $data): Wablas
@@ -169,8 +169,7 @@ class V2 extends BaseObject
      * Multiple Send Template,
      * It sets a request on the `$wablas` object, 
      * passing a post request with the endpoint 'v2/send-template'.
-     * 
-     * @param array $data
+     *
      * ```php
      * $data = [
      *     [
@@ -223,7 +222,7 @@ class V2 extends BaseObject
      * ];
      * ```
      * 
-     * 
+     * @param array $data
      * @return Wablas
      */
     public function sendTemplate(array $data): Wablas
@@ -236,8 +235,7 @@ class V2 extends BaseObject
      * Multiple Send Link with Preview,
      * It sets a request on the `$wablas` object, 
      * passing a post request with the endpoint 'v2/send-link'.
-     * 
-     * @param array $data
+     *
      * ```php
      * $data = [
      *     [
@@ -253,7 +251,8 @@ class V2 extends BaseObject
      *     ...
      * ];
      * ```
-     * 
+     *
+     * @param array $data
      * @return Wablas
      */
     public function sendLink(array $data): Wablas
@@ -266,8 +265,7 @@ class V2 extends BaseObject
      * Multiple Send List,
      * It sets a request on the `$wablas` object, 
      * passing a post request with the endpoint 'v2/send-list'.
-     * 
-     * @param array $data
+     *
      * ```php
      * $data = [
      *     [
@@ -292,7 +290,8 @@ class V2 extends BaseObject
      *     ...
      * ];
      * ```
-     * 
+     *
+     * @param array $data
      * @return Wablas
      */
     public function sendList(array $data): Wablas
@@ -306,7 +305,6 @@ class V2 extends BaseObject
      * It sets a request on the `$wablas` object, 
      * passing a post request with the endpoint 'v2/schedule'.
      * 
-     * @param array $data
      * ```php
      * $data = [
      *     [
@@ -359,7 +357,7 @@ class V2 extends BaseObject
      *     ...
      * ];
      * ```
-     * 
+     *
      * @param array $data
      * @return Wablas
      */
@@ -373,9 +371,7 @@ class V2 extends BaseObject
      * Multiple Delete Schedule,
      * It sets a request on the `$wablas` object, 
      * passing a delete request with the endpoint 'v2/delete-schedule?id=xxx,xxx,xxx'.
-     * 
-     * @param array $data Unix ID from schedule message. Look response documentation api send schedule.
-     * Example: `8abe5c56-7f43-451b-8b2d-91a9f9a74561`
+     *
      * ```php
      * $data = [
      *     '8abe5c56-7f43-451b-8b2d-91a9f9a74561',
@@ -384,7 +380,8 @@ class V2 extends BaseObject
      *     ...
      * ];
      * ```
-     * 
+     *
+     * @param array $data Unix ID from schedule message. Look response documentation api send schedule. Example UID: `8abe5c56-7f43-451b-8b2d-91a9f9a74561`
      * @return Wablas
      */
     public function scheduleDelete(array $data): Wablas
@@ -397,10 +394,7 @@ class V2 extends BaseObject
      * Update Multiple Schedule,
      * It sets a request on the `$wablas` object, 
      * passing a put request with the endpoint 'v2/schedule/{schedule_id}'.
-     * 
-     * @param string $id Unix ID from schedule message. Look response documentation api send schedule.
-     * Example: `8abe5c56-7f43-451b-8b2d-91a9f9a74561`
-     * @param array $data
+     *
      * ```php
      * $data = [
      *     [
@@ -453,7 +447,9 @@ class V2 extends BaseObject
      *     ...
      * ];
      * ```
-     * 
+     *
+     * @param string $id Unix ID from schedule message. Look response documentation api send schedule. Example UID: `8abe5c56-7f43-451b-8b2d-91a9f9a74561`
+     * @param array $data
      * @return Wablas
      */
     public function scheduleUpdate(string $id, array $data): Wablas
@@ -466,8 +462,7 @@ class V2 extends BaseObject
      * Multiple Send Button,
      * It sets a request on the `$wablas` object, 
      * passing a post request with the endpoint 'v2/send-button'.
-     * 
-     * @param array $data
+     *
      * ```php
      * $data = [
      *     [
@@ -493,7 +488,8 @@ class V2 extends BaseObject
      *     ...
      * ];
      * ```
-     * 
+     *
+     * @param array $data
      * @return Wablas
      */
     public function sendButton(array $data): Wablas
@@ -506,8 +502,7 @@ class V2 extends BaseObject
      * Multiple Send Location,
      * It sets a request on the `$wablas` object, 
      * passing a post request with the endpoint 'v2/send-location'.
-     * 
-     * @param array $data
+     *
      * ```php
      * $data = [
      *     [
@@ -522,7 +517,8 @@ class V2 extends BaseObject
      *     ...
      * ];
      * ```
-     * 
+     *
+     * @param array $data
      * @return Wablas
      */
     public function sendLocation(array $data): Wablas
@@ -535,8 +531,7 @@ class V2 extends BaseObject
      * Create Auto Reply,
      * It sets a request on the `$wablas` object, 
      * passing a post request with the endpoint 'v2/autoreply'.
-     * 
-     * @param array $data
+     *
      * ```php
      * $data = [
      *     [
@@ -550,7 +545,8 @@ class V2 extends BaseObject
      *     ...
      * ];
      * ```
-     * 
+     *
+     * @param array $data
      * @return Wablas
      */
     public function autoReplyCreate(array $data): Wablas
@@ -563,17 +559,16 @@ class V2 extends BaseObject
      * Update Auto Reply,
      * It sets a request on the `$wablas` object, 
      * passing a put request with the endpoint 'v2/autoreply/{id}'.
-     * 
-     * @param string $id Unix ID from schedule message. Look response documentation api send schedule.
-     * Example: `8abe5c56-7f43-451b-8b2d-91a9f9a74561`
-     * @param array $data
+     *
      * ```php
      * $data = [
      *     'keyword' => 'hello',
      *     'response' => 'hello too.',
      * ];
      * ```
-     * 
+     *
+     * @param string $id Unix ID from schedule message. Look response documentation api send schedule. Example UID: `8abe5c56-7f43-451b-8b2d-91a9f9a74561`
+     * @param array $data
      * @return Wablas
      */
     public function autoReplyUpdate(string $id, array $data): Wablas
@@ -587,9 +582,7 @@ class V2 extends BaseObject
      * It sets a request on the `$wablas` object, 
      * passing a delete request with the endpoint 'v2/autoreply/{id}'.
      * 
-     * @param string $id Unix ID from schedule message. Look response documentation api send schedule.
-     * Example: `8abe5c56-7f43-451b-8b2d-91a9f9a74561`
-     * 
+     * @param string $id Unix ID from schedule message. Look response documentation api send schedule. Example UID: `8abe5c56-7f43-451b-8b2d-91a9f9a74561`
      * @return Wablas
      */
     public function autoReplyDelete(string $id): Wablas
@@ -602,8 +595,7 @@ class V2 extends BaseObject
      * Create Multiple Contact,
      * It sets a request on the `$wablas` object, 
      * passing a post request with the endpoint 'v2/contact'.
-     * 
-     * @param array $data
+     *
      * ```php
      * $data = [
      *     [
@@ -620,7 +612,8 @@ class V2 extends BaseObject
      *     ...
      * ];
      * ```
-     * 
+     *
+     * @param array $data
      * @return Wablas
      */
     public function contactCreate(array $data): Wablas
@@ -633,8 +626,7 @@ class V2 extends BaseObject
      * Update Multiple Contact,
      * It sets a request on the `$wablas` object, 
      * passing a post request with the endpoint 'v2/contact/update'.
-     * 
-     * @param array $data
+     *
      * ```php
      * $data = [
      *     [
@@ -651,7 +643,8 @@ class V2 extends BaseObject
      *     ...
      * ];
      * ```
-     * 
+     *
+     * @param array $data
      * @return Wablas
      */
     public function contactUpdate(array $data): Wablas
@@ -691,8 +684,7 @@ class V2 extends BaseObject
      * Create Multiple Agent,
      * It sets a request on the `$wablas` object, 
      * passing a post request with the endpoint 'v2/create-agent'.
-     * 
-     * @param array $data
+     *
      * ```php
      * $data = [
      *     [
@@ -704,7 +696,8 @@ class V2 extends BaseObject
      *     ...
      * ];
      * ```
-     * 
+     *
+     * @param array $data
      * @return Wablas
      */
     public function createAgent(array $data): Wablas
