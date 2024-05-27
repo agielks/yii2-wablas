@@ -21,8 +21,6 @@ This extension is wrapper of Wablas API for [Yii framework 2.0](http://www.yiifr
   - [Send Message Example](#send-message-example)
     - [Step by step usage](#step-by-step-usage)
 
-<a name = "installation"></a>
-
 ## Instalation
 
 Package is available on [Packagist](https://packagist.org/packages/agielks/yii2-wablas), you can install it using [Composer](https://getcomposer.org).
@@ -37,15 +35,11 @@ or add to the require section of your `composer.json` file.
 "agielks/yii2-wablas": "~1.0"
 ```
 
-<a name="dependencies"></a>
-
 ## Dependencies
 
 - PHP 7.4+
 - [yiisoft/yii2](https://github.com/yiisoft/yii2)
 - [yiisoft/yii2-httpclient](https://github.com/yiisoft/yii2-httpclient)
-
-<a name="basic-usage"></i>
 
 ## Basic Usage
 
@@ -60,8 +54,6 @@ Add `wablas` component to your configuration file
     ],
 ],
 ```
-
-<a name="basicusage-request"></a>
 
 ## Create Request
 
@@ -83,8 +75,6 @@ print_r($request->toString());
 // Short command
 $request = $this->wablas->build('v2')->sendMessage($data)->request;
 ```
-
-<a name="basicusage-response"></a>
 
 ## Create Response
 
@@ -115,8 +105,6 @@ print_r($response->data);
 // Short command
 $response = $this->wablas->build('v2')->sendMessage($data)->send()->response;
 ```
-
-<a name="basicusage-version"></a>
 
 ## Custom version
 
@@ -157,8 +145,6 @@ class CustomVersion extends BaseObject
 ```php
 $wablas = $this->wablas->build('custom')->sendMessage($data)->send();
 ```
-
-<a name="step-by-step"></a>
 
 ## Send Message Example
 
