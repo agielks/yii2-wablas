@@ -2,27 +2,30 @@
 
 This extension is wrapper of Wablas API for [Yii framework 2.0](http://www.yiiframework.com) (requires PHP 7.4+).
 
-[![Latest Stable Version](http://poser.pugx.org/agielks/yii2-wablas/v)](https://packagist.org/packages/agielks/yii2-wablas) 
-[![Total Downloads](http://poser.pugx.org/agielks/yii2-wablas/downloads)](https://packagist.org/packages/agielks/yii2-wablas) 
-[![Latest Unstable Version](http://poser.pugx.org/agielks/yii2-wablas/v/unstable)](https://packagist.org/packages/agielks/yii2-wablas) 
-[![License](http://poser.pugx.org/agielks/yii2-wablas/license)](https://packagist.org/packages/agielks/yii2-wablas) 
+[![Latest Stable Version](http://poser.pugx.org/agielks/yii2-wablas/v)](https://packagist.org/packages/agielks/yii2-wablas)
+[![Total Downloads](http://poser.pugx.org/agielks/yii2-wablas/downloads)](https://packagist.org/packages/agielks/yii2-wablas)
+[![Latest Unstable Version](http://poser.pugx.org/agielks/yii2-wablas/v/unstable)](https://packagist.org/packages/agielks/yii2-wablas)
+[![License](http://poser.pugx.org/agielks/yii2-wablas/license)](https://packagist.org/packages/agielks/yii2-wablas)
 [![PHP Version Require](http://poser.pugx.org/agielks/yii2-wablas/require/php)](https://packagist.org/packages/agielks/yii2-wablas)
 
 ## Table of contents
 
-1. [Installation](#installation)
-1. [Dependencies](#dependencies)
-1. [Basic usage](#basic-usage)
-   1. [Create request](#basicusage-request)
-   1. [Create response](#basicusage-response)
-   1. [Create version](#basicusage-version)
-1. [Step by step](#step-by-step)
+- [Yii2 Wablas](#yii2-wablas)
+  - [Table of contents](#table-of-contents)
+  - [Instalation](#instalation)
+  - [Dependencies](#dependencies)
+  - [Basic Usage](#basic-usage)
+  - [Create Request](#create-request)
+  - [Create Response](#create-response)
+  - [Custom version](#custom-version)
+  - [Send Message Example](#send-message-example)
+    - [Step by step usage](#step-by-step-usage)
 
-<a name="installation"></a>
+<a name = "installation"></a>
+
 ## Instalation
 
-Package is available on [Packagist](https://packagist.org/packages/agielks/yii2-wablas), 
-you can install it using [Composer](http://getcomposer.org).
+Package is available on [Packagist](https://packagist.org/packages/agielks/yii2-wablas), you can install it using [Composer](https://getcomposer.org).
 
 ```shell
 composer require agielks/yii2-wablas ~1.0
@@ -35,6 +38,7 @@ or add to the require section of your `composer.json` file.
 ```
 
 <a name="dependencies"></a>
+
 ## Dependencies
 
 - PHP 7.4+
@@ -42,6 +46,7 @@ or add to the require section of your `composer.json` file.
 - [yiisoft/yii2-httpclient](https://github.com/yiisoft/yii2-httpclient)
 
 <a name="basic-usage"></i>
+
 ## Basic Usage
 
 Add `wablas` component to your configuration file
@@ -49,27 +54,27 @@ Add `wablas` component to your configuration file
 ```php
 'components' => [
     'wablas' => [
-        'class' => \agielks\yii2\wablas\Wablas::class,
-        'endpoint' => 'my-wablas.com/api', // Change with your wablas API endpoint
-        'token' => 'my-token', // Change with your wablas API token
+        'class'    => \agielks\yii2\wablas\Wablas::class,
+        'endpoint' => 'my-wablas.com/api',                  // Change with your wablas API endpoint
+        'token'    => 'my-token',                           // Change with your wablas API token
     ],
 ],
 ```
 
 <a name="basicusage-request"></a>
+
 ## Create Request
 
 ```php
 $data = [
     [
-        'phone' => '6281218xxxxxx',
+        'phone'   => '6281218xxxxxx',
         'message' => 'hello there',
     ]
 ];
 
-/* @var $wablas \agielks\yii2\wablas\versions\V2 */
-
-$wablas = $this->wablas->build('v2');
+/** @var \agielks\yii2\wablas\versions\V2 $wablas */
+$wablas  = $this->wablas->build('v2');
 $request = $wablas->sendMessage($data)->request;
 
 // Print request to string
@@ -80,18 +85,18 @@ $request = $this->wablas->build('v2')->sendMessage($data)->request;
 ```
 
 <a name="basicusage-response"></a>
+
 ## Create Response
 
 ```php
 $data = [
     [
-        'phone' => '6281218xxxxxx',
+        'phone'   => '6281218xxxxxx',
         'message' => 'hello there',
     ]
 ];
 
-/* @var $wablas \agielks\yii2\wablas\versions\V2 */
-
+/** @var \agielks\yii2\wablas\versions\V2 $wablas */
 $wablas = $this->wablas->build('v2');
 $response = $wablas
     ->sendMessage($data)
@@ -112,10 +117,13 @@ $response = $this->wablas->build('v2')->sendMessage($data)->send()->response;
 ```
 
 <a name="basicusage-version"></a>
+
 ## Custom version
+
 You can create your own version as follows
 
 1. Create custom version
+
 ```php
 class CustomVersion extends BaseObject
 {
@@ -130,12 +138,13 @@ class CustomVersion extends BaseObject
 ```
 
 2. Register custom version
+
 ```php
 'components' => [
     'wablas' => [
-        'class' => \agielks\yii2\wablas\Wablas::class,
-        'endpoint' => 'my-wablas.com', // Change with your endpoint
-        'token' => 'my-token', // Change with your wablas token,
+        'class'    => \agielks\yii2\wablas\Wablas::class,
+        'endpoint' => 'my-wablas.com',                      // Change with your endpoint
+        'token'    => 'my-token',                           // Change with your wablas token,
         'versions' => [
             'custom' => CustomVersion::class,
         ]
@@ -144,14 +153,17 @@ class CustomVersion extends BaseObject
 ```
 
 3. Call the custom version
+
 ```php
 $wablas = $this->wablas->build('custom')->sendMessage($data)->send();
 ```
 
 <a name="step-by-step"></a>
+
 ## Send Message Example
 
 ### Step by step usage
+
 1. Install component
 
 ```shell
@@ -164,9 +176,9 @@ composer require agielks/yii2-wablas ~1.0
 'components' => [
     // other components here...
     'wablas' => [
-        'class' => \agielks\yii2\wablas\Wablas::class,
+        'class'    => \agielks\yii2\wablas\Wablas::class,
         'endpoint' => 'my-wablas.com/api',
-        'token' => 'my-token',
+        'token'    => 'my-token',
     ],
     // ...
 ],
@@ -185,7 +197,7 @@ class TestController extends Controller
     {
         $data = [
             [
-                'phone' => '6281218xxxxxx',
+                'phone'   => '6281218xxxxxx',
                 'message' => 'hello there',
             ]
         ];
